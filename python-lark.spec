@@ -1,5 +1,5 @@
 Name:           python-lark
-Version:        1.1.7
+Version:        1.1.8
 Release:        %autorelease
 Summary:        a modern parsing library
 
