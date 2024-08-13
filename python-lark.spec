@@ -1,5 +1,5 @@
 Name:           python-lark
-Version:        1.1.8
+Version:        1.2.1
 Release:        %autorelease
 Summary:        a modern parsing library
 
@@ -17,7 +17,6 @@ BuildRequires:  python3-devel
 %global _description %{expand:
 This is package 'lark' generated automatically by pyp2spec.}
 
-
 %description %_description
 
 %package -n     python3-lark
@@ -25,13 +24,18 @@ Summary:        %{summary}
 
 %description -n python3-lark %_description
 
+# For official Fedora packages, review which extras should be actually packaged
+# See: https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/#Extras
+%pyproject_extras_subpkg -n python3-lark atomic-cache,interegular,nearley,regex
+
 
 %prep
 %autosetup -p1 -n lark-%{version}
 
 
 %generate_buildrequires
-%pyproject_buildrequires
+# Keep only those extras which you actually want to package or use during tests
+%pyproject_buildrequires -x atomic-cache,interegular,nearley,regex
 
 
 %build
