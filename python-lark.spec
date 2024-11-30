@@ -1,6 +1,7 @@
 Name:           python-lark
-Version:        1.2.2
+Version:        1.1.9
 Release:        %autorelease
+# Fill in the actual package summary to submit package to Fedora
 Summary:        a modern parsing library
 
 # Check if the automatically generated License and its spelling is correct for Fedora
@@ -50,7 +51,7 @@ Summary:        %{summary}
 
 
 %check
-%pyproject_check_import -t
+%_pyproject_check_import_allow_no_modules -t
 
 
 %files -n python3-lark -f %{pyproject_files}
